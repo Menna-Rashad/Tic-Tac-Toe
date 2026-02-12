@@ -1,6 +1,11 @@
 export default function Square() {
   return <> 
-  {/* why does the fragment opening tag need to be right next to the return keyword for it to work? */}
+  {/* why does the fragment opening tag needs to be in the same line as the return keyword for it to work?
+  we need the fragment opening next to the return because js engine considers the return statement already ended and it doesn't
+  read anything below it.
+  we also need the fragment element itself because in react, we retuen only one element
+  re can return in ( ) but we also need the fragment or any other element to swap the whole thing
+  just to make sure we're returning one single element*/}
     <button className="square">X</button>
     <button className="square">X</button>
     <button className="square">X</button>
