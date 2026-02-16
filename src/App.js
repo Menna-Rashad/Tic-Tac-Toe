@@ -1,6 +1,16 @@
+import { useState } from "react";
+
 function Square (){
-  return <button className="square">1</button>;
+
+  const [value, setValue] = useState(null);
+
+  function handleClick(){
+    console.log('clicked!');
+  }
+
+  return <button className="square" onClick={handleClick}>{value}</button>;
 }
+// value is a prop passed from the parent (Board) to the child (Square)
 
 
 export default function Board() {
@@ -13,19 +23,19 @@ export default function Board() {
       re can return in ( ) but we also need the fragment or any other element to swap the whole thing
       just to make sure we're returning one single element*/}
         <div className="board-row">
-          <Square/>
-          <Square/>
-          <Square/>
+          <Square value= "1" />
+          <Square value= "2" />
+          <Square value= "3" />
         </div>
         <div className="board-row">
-          <Square/>
-          <Square/>
-          <Square/>
+          <Square value= "4" />
+          <Square value= "5" />
+          <Square value= "6" />
         </div>
         <div className="board-row">
-          <Square/>
-          <Square/>
-          <Square/>
+          <Square value= "7" />
+          <Square value= "8" />
+          <Square value= "9" />
         </div>
     </>
   )
