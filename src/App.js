@@ -3,9 +3,12 @@ import { useState } from "react";
 function Square (){
 
   const [value, setValue] = useState(null);
+  // null is the initial value of the variable 'value'
+  // and setValue is the function that can be used to change the value
 
   function handleClick(){
-    console.log('clicked!');
+    setValue('X');
+    // the value is set directly to X
   }
 
   return <button className="square" onClick={handleClick}>{value}</button>;
@@ -23,19 +26,19 @@ export default function Board() {
       re can return in ( ) but we also need the fragment or any other element to swap the whole thing
       just to make sure we're returning one single element*/}
         <div className="board-row">
-          <Square value= "1" />
-          <Square value= "2" />
-          <Square value= "3" />
+          <Square />
+          <Square />
+          <Square />
         </div>
         <div className="board-row">
-          <Square value= "4" />
-          <Square value= "5" />
-          <Square value= "6" />
+          <Square />
+          <Square />
+          <Square />
         </div>
         <div className="board-row">
-          <Square value= "7" />
-          <Square value= "8" />
-          <Square value= "9" />
+          <Square />
+          <Square />
+          <Square />
         </div>
     </>
   )
