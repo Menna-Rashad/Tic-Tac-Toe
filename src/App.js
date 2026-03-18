@@ -2,9 +2,10 @@ import { useState } from "react";
 
 function Square ({value, onSquareClick}) {
 
-  return <button className="square" onClick={onSquareClick}>{value}</button>;
+  return <button className="square size-16 border border-gray-400 bg-white text-3xl font-bold flex items-center justify-center hover:bg-gray-100 transition-colors" onClick={onSquareClick}>{value}</button>;
 }
 // value is a prop passed from the parent (Board) to the child (Square)
+// className=""
 
 
 export default function Board() {
@@ -14,26 +15,28 @@ export default function Board() {
 
   return (
     <> 
+    <div className="wrapper flex justify-center flex-col min-h-screen">
       {/* why does the fragment opening tag needs to be in the same line as the return keyword for it to work?
       we need the fragment opening next to the return because js engine considers the return statement already ended and it doesn't
       read anything below it.
       we also need the fragment element itself because in react, we retuen only one element
       re can return in ( ) but we also need the fragment or any other element to swap the whole thing
       just to make sure we're returning one single element*/}
-        <div className="board-row">
+        <div className="board-row flex justify-center">
           <Square value={squares[0]}/>
           <Square value={squares[1]}/>
           <Square value={squares[2]}/>
         </div>
-        <div className="board-row">
+        <div className="board-row flex justify-center">
           <Square value={squares[3]}/>
           <Square value={squares[4]}/>
           <Square value={squares[5]}/>
         </div>
-        <div className="board-row">
+        <div className="board-row flex justify-center">
           <Square value={squares[6]}/>
           <Square value={squares[7]}/>
           <Square value={squares[8]}/>
+        </div>
         </div>
     </>
   )
