@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Square ({value, onSquareClick}) {
 
-  return <button className="square bg-square rounded-[10px] size-[80px] md:size-[100px] 2xl:size-[150px] border border-gray-400 text-3xl font-bold flex items-center justify-center hover:bg-gray-100 transition-colors" onClick={onSquareClick}>{value}</button>;
+  return <button className="square bg-square rounded-[10px] size-[80px] md:size-[100px] 2xl:size-[150px] text-3xl font-bold hover:bg-background transition-colors" onClick={onSquareClick}>{value}</button>;
 }
 // value is a prop passed from the parent (Board) to the child (Square)
 
@@ -14,29 +14,25 @@ export default function Board() {
 
   return (
     <> 
-    <div className="wrapper flex justify-center flex-col min-h-screen gap-3 md:gap-4 bg-background">
+    <div id="wrapper" className="flex justify-center items-center min-h-screen bg-background">
       {/* why does the fragment opening tag needs to be in the same line as the return keyword for it to work?
       we need the fragment opening next to the return because js engine considers the return statement already ended and it doesn't
       read anything below it.
       we also need the fragment element itself because in react, we retuen only one element
       re can return in ( ) but we also need the fragment or any other element to swap the whole thing
       just to make sure we're returning one single element*/}
-        <div className="board-row flex justify-center gap-3 md:gap-4 bg-board">
+        <div className="board grid grid-cols-3 gap-[10px] bg-board px-[30px] py-[90px] rounded-[30px]">
           <Square value={squares[0]}/>
           <Square value={squares[1]}/>
           <Square value={squares[2]}/>
-        </div>
-        <div className="board-row flex justify-center gap-3 md:gap-4">
           <Square value={squares[3]}/>
           <Square value={squares[4]}/>
           <Square value={squares[5]}/>
-        </div>
-        <div className="board-row flex justify-center gap-3 md:gap-4">
           <Square value={squares[6]}/>
           <Square value={squares[7]}/>
           <Square value={squares[8]}/>
         </div>
-        </div>
+      </div>
     </>
   )
   ;
