@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Square ({value, onSquareClick}) {
 
-  return <button className="text-[skyBlue] bg-square rounded-[10px] size-[80px] md:size-[100px] 2xl:size-[150px] text-3xl font-bold hover:bg-background transition-colors" onClick={onSquareClick}>
+  return <button className="text-skyBlue bg-square rounded-[10px] size-[80px] md:size-[100px] 2xl:size-[150px] text-3xl font-bold hover:bg-background transition-colors" onClick={onSquareClick}>
             {value}
           </button>;
 }
@@ -16,7 +16,7 @@ export default function Board() {
   // Note: State is private to a component that defines it, you cannot update the Board’s state directly from Square.
 
   function handleClick(i) {
-    if (squares[i]){
+    if (squares[i] || calculateWinner(squares)){
       return;
     }
     const nextSquares = squares.slice();
@@ -29,9 +29,20 @@ export default function Board() {
     setXIsNext(!xIsNext);
   }
 
+    const winner = calculateWinner(squares);
+      let status;
+      if (winner) {
+        status = "Winner: " + winner;
+      } else if (!squares.includes(null)) {
+        status = "Draw!"; 
+      } else {
+        status = "Next player: " + (xIsNext ? "X" : "O");
+  }
+
   return (
     <> 
-    <div id="wrapper" className="flex justify-center items-center min-h-screen bg-background">
+    <div id="wrapper" className="text-lg flex flex-col gap-[20px] justify-center items-center min-h-screen bg-background">
+       <div className="status text-yellow font-bold">{status}</div>
       {/* why does the fragment opening tag needs to be in the same line as the return keyword for it to work?
       we need the fragment opening next to the return because js engine considers the return statement already ended and it doesn't
       read anything below it.
@@ -55,10 +66,29 @@ export default function Board() {
   ;
 }
 
-
 // Q: why do i need the 'default' keyword here to tell other files using this file that it's the main function?
 //shouldn't using the 'export' keyword enough? i'm not exporting any other thing anyway
 // and if i had other functions in here, they wouldn't have the 'export' keyword (i think)
 // so why the 'default'?
 // A: The 'default' keyword specifies the main function of the file, 
 // so it gets exported automatically without needing to call it by its exact name when importing.
+
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
+}
