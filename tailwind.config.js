@@ -10,7 +10,7 @@ module.exports = {
         background: '#5A1E76',
         square: '#43115B',
         yellow: '#DCBF3F',
-        sky_blue: '#72CFF9',
+        skyBlue: '#72CFF9',
         new_game_hover: '#C5A0D7'
       },
     },

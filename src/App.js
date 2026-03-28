@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Square ({value, onSquareClick}) {
 
-  return <button className="bg-square rounded-[10px] size-[80px] md:size-[100px] 2xl:size-[150px] text-3xl font-bold hover:bg-background transition-colors" onClick={onSquareClick}>
+  return <button className="text-[skyBlue] bg-square rounded-[10px] size-[80px] md:size-[100px] 2xl:size-[150px] text-3xl font-bold hover:bg-background transition-colors" onClick={onSquareClick}>
             {value}
           </button>;
 }
@@ -11,13 +11,22 @@ function Square ({value, onSquareClick}) {
 
 export default function Board() {
 
+  const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
   // Note: State is private to a component that defines it, you cannot update the Board’s state directly from Square.
 
   function handleClick(i) {
+    if (squares[i]){
+      return;
+    }
     const nextSquares = squares.slice();
-    nextSquares[i]="X";
+    if(xIsNext){
+      nextSquares[i] = 'X';
+    }else{
+      nextSquares[i] = 'O';
+    }    
     setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
 
   return (
@@ -45,6 +54,7 @@ export default function Board() {
   )
   ;
 }
+
 
 // Q: why do i need the 'default' keyword here to tell other files using this file that it's the main function?
 //shouldn't using the 'export' keyword enough? i'm not exporting any other thing anyway
