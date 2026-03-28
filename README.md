@@ -1,5 +1,7 @@
 # 🎮 React Tic-Tac-Toe
 
+[![Play Live](https://img.shields.io/badge/Play_Live-Tic_Tac_Toe-success?style=for-the-badge&logo=react)](https://Menna-Rashad.github.io/Tic-Tac-Toe)
+
 A modern, responsive Tic-Tac-Toe game built as a hands-on project to master React state management and UI styling. 
 
 I developed this project following the official React documentation, but I took the UI a step further by implementing a custom, pixel-perfect design using **Tailwind CSS**, inspired by a custom Figma design.
@@ -39,9 +41,14 @@ The design adapts seamlessly to various screen sizes using Tailwind breakpoints:
 - Tailwind CSS
 - HTML5 / CSS3
 
+## 📫 Let's Connect!
+
+- **LinkedIn:** [Menna Rashad](https://www.linkedin.com/in/YOUR-LINKEDIN-URL)
+- **Live Game:** [Play Tic-Tac-Toe](https://Menna-Rashad.github.io/Tic-Tac-Toe)
+
 ## 💡 Acknowledgements
 
 - UI/UX layout inspired by a community Figma design.
 - Core logic structure learned from the official [React.dev Tutorial](https://react.dev/learn/tutorial-tic-tac-toe).
 
-> "My goal is learning and becoming better together." 🚀
+> "My goal is learning, building, and becoming better together." 🚀
