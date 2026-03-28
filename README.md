@@ -43,7 +43,7 @@ The design adapts seamlessly to various screen sizes using Tailwind breakpoints:
 
 ## 📫 Let's Connect!
 
-- **LinkedIn:** [Menna Rashad](https://www.linkedin.com/in/YOUR-LINKEDIN-URL)
+- **LinkedIn:** [Menna Rashad](https://www.linkedin.com/in/mennarashad)
 - **Live Game:** [Play Tic-Tac-Toe](https://Menna-Rashad.github.io/Tic-Tac-Toe)
 
 ## 💡 Acknowledgements
